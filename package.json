@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/prerakrustagi/db_410c_gpio_js/issues"
   },
-  "homepage": "https://github.com/prerakrustagi/db_410c_gpio_js#readme"
+  "homepage": "https://github.com/prerakrustagi/db_410c_gpio_js#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
 }
