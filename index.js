@@ -103,7 +103,7 @@ DB410C.GPIOProcessor = (function() {
             'setValue': __setValue,
             'getValue': __getValue
         };
-    }
+    };
 
     /**
      * The getPin method is used to create a GPIO object. After a GPIO is
