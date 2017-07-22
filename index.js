@@ -112,8 +112,12 @@ DB410C.GPIOProcessor = (function() {
     var __getPin = function(pinNumber, cb) {
         var gpioPin = GPIO(pinNumber);
         gpioPin.openPin(function(err) {
-            _GPIOList.push(pinNumber);
-            cb(err);
+            if(err) {
+                cb(err);
+            } else {
+                _GPIOList.push(pinNumber);
+                cb(null, gpioPin);
+            }
         })
     };
 
