@@ -15,16 +15,16 @@ DB410C.GPIOProcessor = (function() {
 
         var __openPin = function(cb) {
             if(_GPIOList.indexOf(pinNumber) !== -1) {
-                cb(null);
+                if(typeof cb === 'function') { cb(null); }
             } else {
                 fs.writeFile(PATH + 'export', _mapGPIOPins[pinNumber], function(err) {
                     if(err) {
                         console.log(err);
-                        cb(err);
+                        if(typeof cb === 'function') { cb(err); }
                     } else {
                         _GPIOList.push(pinNumber);
                         console.log( 'Pin : ' pinNumber + ' opened successfully');
-                        cb(null);
+                        if(typeof cb === 'function') { cb(null); }
                     }
                 });
             }
@@ -35,15 +35,15 @@ DB410C.GPIOProcessor = (function() {
                 fs.writeFile(PATH + 'unexport', _mapGPIOPins[pinNumber], function(err) {
                     if(err) {
                         console.log(err);
-                        cb(err);
+                        if(typeof cb === 'function') { cb(err); }
                     } else {
                         _GPIOList.splice(_GPIOList.indexOf(pinNumber), 1);
                         console.log( 'Pin : ' pinNumber + ' closed successfully');
-                        cb(null);
+                        if(typeof cb === 'function') { cb(null); }
                     }
                 });
             } else {
-                cb(null);
+                if(typeof cb === 'function') { cb(null); }
             }
         };
 
@@ -51,10 +51,10 @@ DB410C.GPIOProcessor = (function() {
             fs.writeFile(PATH + 'gpio' + _mapGPIOPins(pinNumber) + "/direction", direction, function(err) {
                 if(err) {
                     console.log(err);
-                    cb(err);
+                    if(typeof cb === 'function') { cb(err); }
                 } else {
                     console.log( 'Direction: ' + direction + ' set for pin: ' + pinNumber);
-                    cb(null);
+                    if(typeof cb === 'function') { cb(null); }
                 }
             });
         };
@@ -63,10 +63,10 @@ DB410C.GPIOProcessor = (function() {
             fs.readFile(PATH + 'gpio' + _mapGPIOPins(pinNumber) + "/direction", function(err, direction) {
                 if(err) {
                     console.log(err);
-                    cb(err);
+                    if(typeof cb === 'function') { cb(err); }
                 } else {
                     console.log( 'Direction for pin: ' + pinNumber + ' is ' + direction);
-                    cb(null, direction);
+                    if(typeof cb === 'function') { cb(null, direction); }
                 }
             });
         };
@@ -75,10 +75,10 @@ DB410C.GPIOProcessor = (function() {
             fs.writeFile(PATH + 'gpio' + _mapGPIOPins(pinNumber) + "/value", value, function(err) {
                 if(err) {
                     console.log(err);
-                    cb(err);
+                    if(typeof cb === 'function') { cb(err); }
                 } else {
                     console.log( 'Value for pin: ' + pinNumber + ' is set to ' + value);
-                    cb(null);
+                    if(typeof cb === 'function') { cb(null); }
                 }
             });
         };
@@ -87,10 +87,10 @@ DB410C.GPIOProcessor = (function() {
             fs.readFile(PATH + 'gpio' + _mapGPIOPins(pinNumber) + "/value", function(err, value) {
                 if(err) {
                     console.log(err);
-                    cb(err);
+                    if(typeof cb === 'function') { cb(err); }
                 } else {
                     console.log( 'Value for pin: ' + pinNumber + ' is ' + value);
-                    cb(null, value);
+                    if(typeof cb === 'function') { cb(null, value); }
                 }
             });
         };
@@ -113,10 +113,10 @@ DB410C.GPIOProcessor = (function() {
         var gpioPin = GPIO(pinNumber);
         gpioPin.openPin(function(err) {
             if(err) {
-                cb(err);
+                if(typeof cb === 'function') { cb(err); }
             } else {
                 _GPIOList.push(pinNumber);
-                cb(null, gpioPin);
+                if(typeof cb === 'function') { cb(null, gpioPin); }
             }
         })
     };
@@ -133,14 +133,14 @@ DB410C.GPIOProcessor = (function() {
                         error = err
                         openPinCount -= 1;
                         if(openPinCount === 0) {
-                            cb(error);
+                            if(typeof cb === 'function') { cb(error); }
                         }
                     });
                 } else {
                     error = err;
                     openPinCount -= 1;
                     if(openPinCount === 0) {
-                        cb(error);
+                        if(typeof cb === 'function') { cb(error); }
                     }
                 }
             });
