@@ -1,7 +1,7 @@
 {
   "name": "db_410c_gpio_js",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a library for using GPIO pins in linux based linaro OS for DragonBoard 410C",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/prerakrustagi/db_410c_gpio_js.git"
   },
-  "author": "",
+  "author": "Prerak Rustagi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/prerakrustagi/db_410c_gpio_js/issues"
