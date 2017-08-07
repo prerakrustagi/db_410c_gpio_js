@@ -23,7 +23,7 @@ DB410C.GPIOProcessor = (function() {
                         if(typeof cb === 'function') { cb(err); }
                     } else {
                         _GPIOList.push(pinNumber);
-                        console.log( 'Pin : ' pinNumber + ' opened successfully');
+                        console.log( 'Pin : ' + pinNumber + ' opened successfully');
                         if(typeof cb === 'function') { cb(null); }
                     }
                 });
@@ -38,7 +38,7 @@ DB410C.GPIOProcessor = (function() {
                         if(typeof cb === 'function') { cb(err); }
                     } else {
                         _GPIOList.splice(_GPIOList.indexOf(pinNumber), 1);
-                        console.log( 'Pin : ' pinNumber + ' closed successfully');
+                        console.log( 'Pin : ' + pinNumber + ' closed successfully');
                         if(typeof cb === 'function') { cb(null); }
                     }
                 });
