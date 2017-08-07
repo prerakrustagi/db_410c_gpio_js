@@ -1,8 +1,6 @@
 var fs = require('fs');
 
-var DB410C = DB410C || {};
-
-DB410C.GPIOProcessor = (function() {
+module.exports = (function() {
     // MODULE GLOBALS
     var _GPIOList = [];
     var _mapGPIOPins = {
@@ -152,3 +150,5 @@ DB410C.GPIOProcessor = (function() {
         'cleanup': __cleanup
     };
 }) ();
+
+return module.exports;
